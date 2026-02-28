@@ -7,15 +7,18 @@
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background:#000; color:#fff; padding:20px; }
         .container { max-width:420px; margin:auto; border:1px solid #333; padding:25px; border-radius:15px; background: #050505; }
-        .logo { display: block; margin: 0 auto 15px; max-width: 180px; }
+        
+        /* Clear Ear Studios Logo */
+        .logo { display: block; margin: 0 auto 15px; max-width: 200px; height: auto; }
+        
         h2 { text-align:center; letter-spacing: 2px; margin-bottom: 5px; font-weight: 900; }
         .sub { text-align:center; color:#888; font-size:12px; margin-bottom:25px; text-transform: uppercase; }
         
         /* Payment Box */
         .pay-box { background:#111; border:1px solid #444; padding:15px; border-radius:10px; margin-bottom:25px; }
-        .pay-row { display: flex; align-items: center; margin-bottom: 10px; font-size: 16px; }
+        .pay-row { display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; }
         .pay-row:last-child { margin-bottom: 0; }
-        .pay-icon { width: 24px; height: 24px; margin-right: 12px; border-radius: 4px; }
+        .pay-icon { width: 28px; height: 28px; margin-right: 12px; border-radius: 4px; object-fit: contain; }
         .pay-row b { color: #00ff88; margin-left: auto; }
 
         label { font-size: 11px; color: #666; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
@@ -32,18 +35,19 @@
 <body>
 
 <div class="container">
-    <img src="https://static.wixstatic.com/media/431732_199963103473237_530915891_n.jpg" class="logo" alt="Clear Ear Studios">
+    <img src="https://static.wixstatic.com/media/a790f4_616b47c6179e4313b2e5914a2a47245d~v1_fm.jpg" class="logo" alt="Clear Ear Studios">
+    
     <h2>SECRET SOUND FRIDAY</h2>
     <div class="sub">Artist Intake Form</div>
     
     <div class="pay-box">
         <div class="pay-row">
-            <img src="https://img.icons8.com/color/48/cash-app.png" class="pay-icon">
+            <img src="https://img.icons8.com/color/48/cash-app.png" class="pay-icon" alt="CashApp">
             <span>CashApp</span>
             <b>$Blueliveone</b>
         </div>
         <div class="pay-row">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Kx791YQc5S2N54zK2mY9_C46mF8Dnd3I_A&s" class="pay-icon">
+            <img src="https://logowik.com/content/uploads/images/zelle7929.jpg" class="pay-icon" alt="Zelle">
             <span>Zelle</span>
             <b>708-929-8745</b>
         </div>
@@ -53,7 +57,7 @@
         <label>Stage Name</label>
         <input type="text" id="artist" placeholder="Enter Name" required>
         
-        <label>What do you do?</label>
+        <label>Artistic Category</label>
         <select id="category" required>
             <option value="">Select Category...</option>
             <option value="Poet">Poet</option>
@@ -63,7 +67,7 @@
             <option value="Guest">Guest / Supporter</option>
         </select>
 
-        <label>Instagram</label>
+        <label>Instagram Handle</label>
         <input type="text" id="ig" placeholder="@yourhandle">
 
         <div class="perform-row">
@@ -77,8 +81,8 @@
 </div>
 
 <script>
-    // PASTE YOUR NEW GOOGLE WEB APP URL BELOW
-    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;
+    // PASTE YOUR GOOGLE WEB APP URL BELOW
+    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;;
 
     document.getElementById("checkinForm").addEventListener("submit", function(e) {
         e.preventDefault();
