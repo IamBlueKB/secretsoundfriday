@@ -1,134 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Secret Sound Fridays Signup</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background:#000; color:#fff; padding:20px; margin: 0; }
-        .container { max-width:440px; margin:20px auto; border:2px solid #b38b1d; padding:30px; border-radius:15px; background: linear-gradient(180deg, #050505 0%, #1a0000 100%); box-shadow: 0 0 25px rgba(204, 0, 0, 0.3); }
-        
-        /* CENTERED WHITE STUDIO NAME */
-        .venue-header { 
-            font-size: 26px; font-weight: 900; letter-spacing: 5px; margin-bottom: 20px; 
-            color: #ffffff; text-transform: uppercase; text-align: center; display: block; width: 100%;
-        }
-        
-        /* FLYER TITLE STYLE */
-        .title-box { text-align: center; margin-bottom: 25px; line-height: 0.8; }
-        .secret-sounds { font-family: 'Anton', sans-serif; font-size: 55px; color: #cc0000; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px #000; }
-        .fridays { font-family: 'Yellowtail', cursive; font-size: 45px; color: #ff9933; margin-top: -10px; display: block; }
-
-        /* PAYMENT BOX - RELIABLE LOGOS */
-        .pay-box { background: rgba(255, 255, 255, 0.05); border: 1px solid #444; padding:15px; border-radius:10px; margin-bottom:25px; }
-        .pay-row { display: flex; align-items: center; margin-bottom: 15px; font-size: 18px; }
-        .pay-row:last-child { margin-bottom: 0; }
-        .pay-icon { width: 30px; height: 30px; margin-right: 12px; object-fit: contain; }
-        .pay-label { color: #888; font-weight: bold; text-transform: uppercase; font-size: 11px; }
-        .pay-val { color: #ff9933; margin-left: auto; font-weight: bold; font-family: monospace; font-size: 20px; }
-
-        /* FORM INPUTS */
-        label { font-size: 11px; color: #b38b1d; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
-        input, select { width:100%; padding:14px; margin-bottom: 20px; border-radius:8px; border:1px solid #333; background:#000; color:#fff; box-sizing:border-box; font-size: 16px; border-left: 4px solid #cc0000; }
-        
-        /* PERFORMING TOGGLE */
-        .perform-row { display:flex; align-items:center; justify-content:space-between; background:rgba(204, 0, 0, 0.1); padding:15px; border-radius:8px; border:1px solid #cc0000; margin-bottom: 25px; }
-        input[type="checkbox"] { width:28px; height:28px; accent-color:#cc0000; cursor: pointer; }
-        
-        /* SUBMIT BUTTON */
-        button { width:100%; padding:20px; background: linear-gradient(90deg, #cc0000 0%, #800000 100%); color:#fff; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 18px; letter-spacing: 2px; transition: 0.2s; }
-        button:active { transform: scale(0.97); }
-        button:disabled { background: #444; cursor: not-allowed; }
-        
-        #status { color:#ff9933; text-align:center; margin-top:15px; font-weight:bold; min-height: 20px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <div class="venue-header">CLEAR EAR STUDIOS</div>
-    
-    <div class="title-box">
-        <span class="secret-sounds">Secret Sounds</span>
-        <span class="fridays">Fridays</span>
-    </div>
-    
-    <div class="pay-box">
-        <div class="pay-row">
-            <img src="https://img.icons8.com/color/48/cash-app.png" class="pay-icon" alt="CashApp">
-            <span class="pay-label">CashApp</span>
-            <span class="pay-val">$Blueliveone</span>
-        </div>
-        <div class="pay-row">
-            <img src="https://img.icons8.com/color/48/zelle.png" class="pay-icon" alt="Zelle">
-            <span class="pay-label">Zelle</span>
-            <span class="pay-val">708-929-8745</span>
-        </div>
-    </div>
-
-    <form id="checkinForm">
-        <label>Stage Name</label>
-        <input type="text" id="artist" placeholder="Enter Name" required>
-        
-        <label>Artistic Category</label>
-        <select id="category" required>
-            <option value="">Select...</option>
-            <option value="Poet">Poet</option>
-            <option value="Singer">Singer</option>
-            <option value="Musician">Musician</option>
-            <option value="Comedian">Comedian</option>
-            <option value="Guest">Guest / Supporter</option>
-        </select>
-
-        <label>Instagram Handle</label>
-        <input type="text" id="ig" placeholder="@yourhandle">
-
-        <div class="perform-row">
-            <span style="font-weight:bold; font-size: 14px;">PERFORMING TONIGHT?</span>
-            <input type="checkbox" id="performing">
-        </div>
-
-        <button type="submit" id="submitBtn">Join the List</button>
-    </form>
-    <div id="status"></div>
-</div>
-
 <script>
-    // YOUR LIVE GOOGLE SCRIPT URL
-    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbwrYhEWoFDf3lUcHm380NYH5cMrGla_QzH1hv619KkNQKTkWdj-1ZO0AMXowq_ZigAV6g/exec;
+    // YOUR NEW LIVE SCRIPT URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWKCokM7SsKeaU8PR_74Z_Kot6Sd9JCUciThIjkmUJwR5AkMA0Lu7sqKK5mRxhghxnNQ/exec";
 
-    document.getElementById("checkinForm").addEventListener("submit", function(e) {
+    document.getElementById('artistForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        const btn = document.getElementById("submitBtn");
-        const status = document.getElementById("status");
         
+        const status = document.getElementById('status'); // Ensure you have a <p id="status"></p>
+        const btn = e.target.querySelector('button');
+        
+        // Show loading state
+        btn.innerText = "SENDING...";
         btn.disabled = true;
-        btn.innerText = "SIGNING YOU UP...";
 
-        const formData = new URLSearchParams();
-        formData.append("artist", document.getElementById("artist").value);
-        formData.append("cat", document.getElementById("category").value);
-        formData.append("ig", document.getElementById("ig").value);
-        formData.append("perf", document.getElementById("performing").checked ? "YES" : "NO");
+        // 1. Package data as Form Parameters (Google's preferred language)
+        const params = new URLSearchParams();
+        params.append("artist", document.getElementById('artist').value);
+        params.append("cat", document.getElementById('category').value);
+        params.append("ig", document.getElementById('ig').value);
+        params.append("perf", document.getElementById('performing').checked ? "YES" : "NO");
 
+        // 2. The Handshake
         fetch(SCRIPT_URL, {
             method: "POST",
-            mode: "no-cors",
-            body: formData
-        }).then(() => {
-            status.innerText = "WELCOME TO THE LIST!";
-            document.getElementById("checkinForm").reset();
+            mode: "no-cors", // Bypasses the security 'clog'
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params
+        })
+        .then(() => {
+            // Success!
+            status.innerText = "WELCOME TO THE FEED!";
+            status.style.color = "#00ffcc"; // Optional: make it green
+            e.target.reset();
+            btn.innerText = "CHECK IN";
             btn.disabled = false;
-            btn.innerText = "Join the List";
-            setTimeout(() => { status.innerText = ""; }, 5000);
-        }).catch(err => {
-            console.error(err);
+        })
+        .catch(err => {
+            console.error("Connection Error:", err);
             status.innerText = "Error. Please try again.";
+            btn.innerText = "RETRY";
             btn.disabled = false;
         });
     });
 </script>
-
-</body>
-</html>
