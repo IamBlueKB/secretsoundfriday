@@ -1,52 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Secret Sound Fridays Signup</title>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; background:#000; color:#fff; padding:20px; }
-        .container { max-width:440px; margin:auto; border:2px solid #b38b1d; padding:30px; border-radius:15px; background: linear-gradient(180deg, #050505 0%, #1a0000 100%); box-shadow: 0 0 25px rgba(204, 0, 0, 0.3); }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background:#000; color:#fff; padding:20px; margin: 0; }
+        .container { max-width:440px; margin:20px auto; border:2px solid #b38b1d; padding:30px; border-radius:15px; background: linear-gradient(180deg, #050505 0%, #1a0000 100%); box-shadow: 0 0 25px rgba(204, 0, 0, 0.3); }
         
-        /* CENTERED WHITE STUDIO NAME - NO IMAGE */
+        /* CENTERED WHITE STUDIO NAME */
         .venue-header { 
-            font-size: 26px; 
-            font-weight: 900; 
-            letter-spacing: 5px; 
-            margin-bottom: 20px; 
-            color: #ffffff; 
-            text-transform: uppercase;
-            text-align: center;
-            display: block;
-            width: 100%;
+            font-size: 26px; font-weight: 900; letter-spacing: 5px; margin-bottom: 20px; 
+            color: #ffffff; text-transform: uppercase; text-align: center; display: block; width: 100%;
         }
         
-        /* Flyer Title Styling */
+        /* FLYER TITLE STYLE */
         .title-box { text-align: center; margin-bottom: 25px; line-height: 0.8; }
         .secret-sounds { font-family: 'Anton', sans-serif; font-size: 55px; color: #cc0000; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px #000; }
         .fridays { font-family: 'Yellowtail', cursive; font-size: 45px; color: #ff9933; margin-top: -10px; display: block; }
 
-        /* Payment Box */
+        /* PAYMENT BOX - RELIABLE LOGOS */
         .pay-box { background: rgba(255, 255, 255, 0.05); border: 1px solid #444; padding:15px; border-radius:10px; margin-bottom:25px; }
         .pay-row { display: flex; align-items: center; margin-bottom: 15px; font-size: 18px; }
         .pay-row:last-child { margin-bottom: 0; }
-        
-        /* LOGOS - FIXED AND BUILT-IN */
-        .pay-icon { width: 30px; height: 30px; margin-right: 12px; object-fit: contain; border-radius: 4px; }
+        .pay-icon { width: 30px; height: 30px; margin-right: 12px; object-fit: contain; }
         .pay-label { color: #888; font-weight: bold; text-transform: uppercase; font-size: 11px; }
         .pay-val { color: #ff9933; margin-left: auto; font-weight: bold; font-family: monospace; font-size: 20px; }
 
-        /* Form Inputs */
+        /* FORM INPUTS */
         label { font-size: 11px; color: #b38b1d; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
         input, select { width:100%; padding:14px; margin-bottom: 20px; border-radius:8px; border:1px solid #333; background:#000; color:#fff; box-sizing:border-box; font-size: 16px; border-left: 4px solid #cc0000; }
         
+        /* PERFORMING TOGGLE */
         .perform-row { display:flex; align-items:center; justify-content:space-between; background:rgba(204, 0, 0, 0.1); padding:15px; border-radius:8px; border:1px solid #cc0000; margin-bottom: 25px; }
         input[type="checkbox"] { width:28px; height:28px; accent-color:#cc0000; cursor: pointer; }
         
-        button { width:100%; padding:20px; background: linear-gradient(90deg, #cc0000 0%, #800000 100%); color:#fff; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 18px; letter-spacing: 2px; }
+        /* SUBMIT BUTTON */
+        button { width:100%; padding:20px; background: linear-gradient(90deg, #cc0000 0%, #800000 100%); color:#fff; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 18px; letter-spacing: 2px; transition: 0.2s; }
         button:active { transform: scale(0.97); }
-        #status { color:#ff9933; text-align:center; margin-top:15px; font-weight:bold; }
+        button:disabled { background: #444; cursor: not-allowed; }
+        
+        #status { color:#ff9933; text-align:center; margin-top:15px; font-weight:bold; min-height: 20px; }
     </style>
 </head>
 <body>
@@ -66,7 +61,7 @@
             <span class="pay-val">$Blueliveone</span>
         </div>
         <div class="pay-row">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJBSURBVHgB7dUxAQAAAMWQ/692hg9oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOA3A8VfAAHu7u9vAAAAAElFTkSuQmCC" class="pay-icon" alt="Zelle">
+            <img src="https://img.icons8.com/color/48/zelle.png" class="pay-icon" alt="Zelle">
             <span class="pay-label">Zelle</span>
             <span class="pay-val">708-929-8745</span>
         </div>
@@ -90,7 +85,7 @@
         <input type="text" id="ig" placeholder="@yourhandle">
 
         <div class="perform-row">
-            <span style="font-weight:bold;">PERFORMING TONIGHT?</span>
+            <span style="font-weight:bold; font-size: 14px;">PERFORMING TONIGHT?</span>
             <input type="checkbox" id="performing">
         </div>
 
@@ -100,34 +95,36 @@
 </div>
 
 <script>
-    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;
+    // YOUR LIVE GOOGLE SCRIPT URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec";
 
     document.getElementById("checkinForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const btn = document.getElementById("submitBtn");
         const status = document.getElementById("status");
+        
         btn.disabled = true;
         btn.innerText = "SIGNING YOU UP...";
 
-        const formData = {
-            artist: document.getElementById("artist").value,
-            cat: document.getElementById("category").value,
-            ig: document.getElementById("ig").value,
-            perf: document.getElementById("performing").checked ? "YES" : "NO"
-        };
+        const formData = new URLSearchParams();
+        formData.append("artist", document.getElementById("artist").value);
+        formData.append("cat", document.getElementById("category").value);
+        formData.append("ig", document.getElementById("ig").value);
+        formData.append("perf", document.getElementById("performing").checked ? "YES" : "NO");
 
         fetch(SCRIPT_URL, {
             method: "POST",
             mode: "no-cors",
-            body: JSON.stringify(formData)
+            body: formData
         }).then(() => {
-            status.innerText = "WELCOME TO SECRET SOUNDS!";
-            this.reset();
+            status.innerText = "WELCOME TO THE LIST!";
+            document.getElementById("checkinForm").reset();
             btn.disabled = false;
             btn.innerText = "Join the List";
             setTimeout(() => { status.innerText = ""; }, 5000);
-        }).catch(() => {
-            alert("Error connecting. Try again.");
+        }).catch(err => {
+            console.error(err);
+            status.innerText = "Error. Please try again.";
             btn.disabled = false;
         });
     });
