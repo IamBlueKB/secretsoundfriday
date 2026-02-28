@@ -6,30 +6,33 @@
     <title>Secret Sound Friday Signup</title>
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background:#000; color:#fff; padding:20px; }
-        .container { max-width:420px; margin:auto; border:1px solid #333; padding:25px; border-radius:15px; background: #050505; }
+        .container { max-width:440px; margin:auto; border:1px solid #333; padding:30px; border-radius:15px; background: #050505; }
         
-        /* Clear Ear Studios Logo */
-        .logo { display: block; margin: 0 auto 15px; max-width: 200px; height: auto; }
+        /* Fixed Logo Sizing */
+        .logo { display: block; margin: 0 auto 20px; width: 100%; max-width: 280px; height: auto; }
         
-        h2 { text-align:center; letter-spacing: 2px; margin-bottom: 5px; font-weight: 900; }
-        .sub { text-align:center; color:#888; font-size:12px; margin-bottom:25px; text-transform: uppercase; }
+        h2 { text-align:center; letter-spacing: 2px; margin-bottom: 5px; font-weight: 900; font-size: 24px; }
+        .sub { text-align:center; color:#888; font-size:14px; margin-bottom:30px; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Payment Box */
-        .pay-box { background:#111; border:1px solid #444; padding:15px; border-radius:10px; margin-bottom:25px; }
-        .pay-row { display: flex; align-items: center; margin-bottom: 12px; font-size: 16px; }
+        /* Fixed Payment Box Spacing */
+        .pay-box { background:#111; border:1px solid #444; padding:20px; border-radius:10px; margin-bottom:30px; }
+        .pay-row { display: flex; align-items: center; margin-bottom: 15px; font-size: 18px; }
         .pay-row:last-child { margin-bottom: 0; }
-        .pay-icon { width: 28px; height: 28px; margin-right: 12px; border-radius: 4px; object-fit: contain; }
-        .pay-row b { color: #00ff88; margin-left: auto; }
-
-        label { font-size: 11px; color: #666; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
-        input, select { width:100%; padding:14px; margin-bottom: 20px; border-radius:8px; border:1px solid #333; background:#1a1a1a; color:#fff; box-sizing:border-box; font-size: 16px; }
         
-        .perform-row { display:flex; align-items:center; justify-content:space-between; background:#1a1a1a; padding:15px; border-radius:8px; border:1px solid #333; margin-bottom: 25px; }
+        /* Corrected Zelle/CashApp Icon Sizes */
+        .pay-icon { width: 32px; height: 32px; margin-right: 15px; object-fit: contain; }
+        .pay-label { color: #eee; font-weight: 500; }
+        .pay-val { color: #00ff88; margin-left: auto; font-weight: bold; font-family: monospace; }
+
+        label { font-size: 12px; color: #666; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 8px; }
+        input, select { width:100%; padding:14px; margin-bottom: 25px; border-radius:8px; border:1px solid #333; background:#1a1a1a; color:#fff; box-sizing:border-box; font-size: 16px; }
+        
+        .perform-row { display:flex; align-items:center; justify-content:space-between; background:#1a1a1a; padding:15px; border-radius:8px; border:1px solid #333; margin-bottom: 30px; }
         input[type="checkbox"] { width:30px; height:30px; cursor: pointer; accent-color:#00ff88; margin: 0; }
         
-        button { width:100%; padding:18px; background:#fff; color:#000; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 16px; transition: 0.2s; }
-        button:active { transform: scale(0.98); background: #00ff88; }
-        #status { color:#00ff88; text-align:center; margin-top:20px; font-weight:bold; min-height: 20px; }
+        button { width:100%; padding:20px; background:#fff; color:#000; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 18px; transition: 0.2s; }
+        button:active { transform: scale(0.97); background: #00ff88; }
+        #status { color:#00ff88; text-align:center; margin-top:20px; font-weight:bold; min-height: 24px; }
     </style>
 </head>
 <body>
@@ -43,13 +46,13 @@
     <div class="pay-box">
         <div class="pay-row">
             <img src="https://img.icons8.com/color/48/cash-app.png" class="pay-icon" alt="CashApp">
-            <span>CashApp</span>
-            <b>$Blueliveone</b>
+            <span class="pay-label">CashApp</span>
+            <span class="pay-val">$Blueliveone</span>
         </div>
         <div class="pay-row">
-            <img src="https://logowik.com/content/uploads/images/zelle7929.jpg" class="pay-icon" alt="Zelle">
-            <span>Zelle</span>
-            <b>708-929-8745</b>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Zelle_logo.svg/1024px-Zelle_logo.svg.png" class="pay-icon" alt="Zelle">
+            <span class="pay-label">Zelle</span>
+            <span class="pay-val">708-929-8745</span>
         </div>
     </div>
 
@@ -57,7 +60,7 @@
         <label>Stage Name</label>
         <input type="text" id="artist" placeholder="Enter Name" required>
         
-        <label>Artistic Category</label>
+        <label>What do you do?</label>
         <select id="category" required>
             <option value="">Select Category...</option>
             <option value="Poet">Poet</option>
@@ -67,7 +70,7 @@
             <option value="Guest">Guest / Supporter</option>
         </select>
 
-        <label>Instagram Handle</label>
+        <label>Instagram</label>
         <input type="text" id="ig" placeholder="@yourhandle">
 
         <div class="perform-row">
@@ -81,8 +84,8 @@
 </div>
 
 <script>
-    // PASTE YOUR GOOGLE WEB APP URL BELOW
-    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;;
+    // MAKE SURE TO PASTE YOUR GOOGLE URL HERE
+    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;
 
     document.getElementById("checkinForm").addEventListener("submit", function(e) {
         e.preventDefault();
