@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Artist Signup</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Sounds Check-In</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; background: #111; color: white; text-align: center; }
-        input, select, button { display: block; width: 100%; margin: 10px 0; padding: 15px; border-radius: 8px; border: none; }
-        button { background: #00ffcc; color: black; font-weight: bold; cursor: pointer; }
-        #status { margin-top: 20px; font-weight: bold; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #000; color: #fff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: #111; padding: 2rem; border-radius: 15px; width: 90%; max-width: 400px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h2 { color: #00ffcc; margin-top: 0; }
+        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #444; background: #222; color: #fff; box-sizing: border-box; }
+        button { background: #00ffcc; color: #000; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+        button:hover { background: #00cca3; }
+        #status { font-weight: bold; margin-top: 15px; min-height: 1.2em; }
     </style>
 </head>
 <body>
 
-    <h2>Secret Sounds: Artist Check-in</h2>
+<div class="card">
+    <h2>Secret Sounds</h2>
+    <p>Artist Check-In</p>
     
     <form id="artistForm">
         <input type="text" id="artist" placeholder="Artist Name" required>
@@ -26,50 +32,54 @@
         
         <input type="text" id="ig" placeholder="Instagram @handle">
         
-        <label>
-            <input type="checkbox" id="performing" checked style="display:inline; width: auto;"> Performing Tonight?
-        </label>
+        <div style="text-align: left; font-size: 0.9rem; margin-top: 5px;">
+            <input type="checkbox" id="performing" checked style="width: auto; margin-right: 10px;"> Performing Tonight?
+        </div>
         
         <button type="submit" id="submitBtn">CHECK IN</button>
     </form>
+    
+    <div id="status"></div>
+</div>
 
-    <p id="status"></p>
+<script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWKCokM7SsKeaU8PR_74Z_Kot6Sd9JCUciThIjkmUJwR5AkMA0Lu7sqKK5mRxhghxnNQ/exec";
 
-    <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWKCokM7SsKeaU8PR_74Z_Kot6Sd9JCUciThIjkmUJwR5AkMA0Lu7sqKK5mRxhghxnNQ/exec";
+    document.getElementById('artistForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const status = document.getElementById('status');
+        const btn = document.getElementById('submitBtn');
 
-        document.getElementById('artistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const status = document.getElementById('status');
-            const btn = document.getElementById('submitBtn');
+        status.innerText = "Sending to the feed...";
+        status.style.color = "#888";
+        btn.disabled = true;
 
-            btn.innerText = "SENDING...";
-            btn.disabled = true;
+        const params = new URLSearchParams();
+        params.append("artist", document.getElementById('artist').value);
+        params.append("cat", document.getElementById('category').value);
+        params.append("ig", document.getElementById('ig').value);
+        params.append("perf", document.getElementById('performing').checked ? "YES" : "NO");
 
-            const params = new URLSearchParams();
-            params.append("artist", document.getElementById('artist').value);
-            params.append("cat", document.getElementById('category').value);
-            params.append("ig", document.getElementById('ig').value);
-            params.append("perf", document.getElementById('performing').checked ? "YES" : "NO");
-
-            fetch(SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: params
-            })
-            .then(() => {
-                status.innerText = "SUCCESS! WELCOME TO THE FEED.";
-                status.style.color = "#00ffcc";
-                e.target.reset();
-                btn.innerText = "CHECK IN";
-                btn.disabled = false;
-            })
-            .catch(err => {
-                status.innerText = "Error. Check your connection.";
-                btn.disabled = false;
-            });
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params
+        })
+        .then(() => {
+            status.innerText = "SUCCESS! WELCOME TO THE SPOTLIGHT.";
+            status.style.color = "#00ffcc";
+            e.target.reset();
+            btn.disabled = false;
+        })
+        .catch(err => {
+            console.error(err);
+            status.innerText = "Connection error. Try again.";
+            status.style.color = "#ff4d4d";
+            btn.disabled = false;
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
