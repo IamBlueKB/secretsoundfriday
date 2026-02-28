@@ -1,44 +1,75 @@
-<script>
-    // YOUR NEW LIVE SCRIPT URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWKCokM7SsKeaU8PR_74Z_Kot6Sd9JCUciThIjkmUJwR5AkMA0Lu7sqKK5mRxhghxnNQ/exec";
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artist Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #111; color: white; text-align: center; }
+        input, select, button { display: block; width: 100%; margin: 10px 0; padding: 15px; border-radius: 8px; border: none; }
+        button { background: #00ffcc; color: black; font-weight: bold; cursor: pointer; }
+        #status { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
 
-    document.getElementById('artistForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+    <h2>Secret Sounds: Artist Check-in</h2>
+    
+    <form id="artistForm">
+        <input type="text" id="artist" placeholder="Artist Name" required>
         
-        const status = document.getElementById('status'); // Ensure you have a <p id="status"></p>
-        const btn = e.target.querySelector('button');
+        <select id="category">
+            <option value="Poet">Poet</option>
+            <option value="Singer">Singer</option>
+            <option value="Musician">Musician</option>
+            <option value="Comedian">Comedian</option>
+        </select>
         
-        // Show loading state
-        btn.innerText = "SENDING...";
-        btn.disabled = true;
+        <input type="text" id="ig" placeholder="Instagram @handle">
+        
+        <label>
+            <input type="checkbox" id="performing" checked style="display:inline; width: auto;"> Performing Tonight?
+        </label>
+        
+        <button type="submit" id="submitBtn">CHECK IN</button>
+    </form>
 
-        // 1. Package data as Form Parameters (Google's preferred language)
-        const params = new URLSearchParams();
-        params.append("artist", document.getElementById('artist').value);
-        params.append("cat", document.getElementById('category').value);
-        params.append("ig", document.getElementById('ig').value);
-        params.append("perf", document.getElementById('performing').checked ? "YES" : "NO");
+    <p id="status"></p>
 
-        // 2. The Handshake
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors", // Bypasses the security 'clog'
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: params
-        })
-        .then(() => {
-            // Success!
-            status.innerText = "WELCOME TO THE FEED!";
-            status.style.color = "#00ffcc"; // Optional: make it green
-            e.target.reset();
-            btn.innerText = "CHECK IN";
-            btn.disabled = false;
-        })
-        .catch(err => {
-            console.error("Connection Error:", err);
-            status.innerText = "Error. Please try again.";
-            btn.innerText = "RETRY";
-            btn.disabled = false;
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWKCokM7SsKeaU8PR_74Z_Kot6Sd9JCUciThIjkmUJwR5AkMA0Lu7sqKK5mRxhghxnNQ/exec";
+
+        document.getElementById('artistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const status = document.getElementById('status');
+            const btn = document.getElementById('submitBtn');
+
+            btn.innerText = "SENDING...";
+            btn.disabled = true;
+
+            const params = new URLSearchParams();
+            params.append("artist", document.getElementById('artist').value);
+            params.append("cat", document.getElementById('category').value);
+            params.append("ig", document.getElementById('ig').value);
+            params.append("perf", document.getElementById('performing').checked ? "YES" : "NO");
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: params
+            })
+            .then(() => {
+                status.innerText = "SUCCESS! WELCOME TO THE FEED.";
+                status.style.color = "#00ffcc";
+                e.target.reset();
+                btn.innerText = "CHECK IN";
+                btn.disabled = false;
+            })
+            .catch(err => {
+                status.innerText = "Error. Check your connection.";
+                btn.disabled = false;
+            });
         });
-    });
-</script>
+    </script>
+</body>
+</html>
