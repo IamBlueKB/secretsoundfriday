@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Secret Sound Friday Signup</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background:#000; color:#fff; padding:20px; }
+        .container { max-width:420px; margin:auto; border:1px solid #333; padding:25px; border-radius:15px; background: #050505; }
+        .logo { display: block; margin: 0 auto 15px; max-width: 180px; }
+        h2 { text-align:center; letter-spacing: 2px; margin-bottom: 5px; font-weight: 900; }
+        .sub { text-align:center; color:#888; font-size:12px; margin-bottom:25px; text-transform: uppercase; }
+        
+        /* Payment Box */
+        .pay-box { background:#111; border:1px solid #444; padding:15px; border-radius:10px; margin-bottom:25px; }
+        .pay-row { display: flex; align-items: center; margin-bottom: 10px; font-size: 16px; }
+        .pay-row:last-child { margin-bottom: 0; }
+        .pay-icon { width: 24px; height: 24px; margin-right: 12px; border-radius: 4px; }
+        .pay-row b { color: #00ff88; margin-left: auto; }
+
+        label { font-size: 11px; color: #666; text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 5px; }
+        input, select { width:100%; padding:14px; margin-bottom: 20px; border-radius:8px; border:1px solid #333; background:#1a1a1a; color:#fff; box-sizing:border-box; font-size: 16px; }
+        
+        .perform-row { display:flex; align-items:center; justify-content:space-between; background:#1a1a1a; padding:15px; border-radius:8px; border:1px solid #333; margin-bottom: 25px; }
+        input[type="checkbox"] { width:30px; height:30px; cursor: pointer; accent-color:#00ff88; margin: 0; }
+        
+        button { width:100%; padding:18px; background:#fff; color:#000; font-weight:bold; border:none; border-radius:8px; cursor:pointer; text-transform: uppercase; font-size: 16px; transition: 0.2s; }
+        button:active { transform: scale(0.98); background: #00ff88; }
+        #status { color:#00ff88; text-align:center; margin-top:20px; font-weight:bold; min-height: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://static.wixstatic.com/media/431732_199963103473237_530915891_n.jpg" class="logo" alt="Clear Ear Studios">
+    <h2>SECRET SOUND FRIDAY</h2>
+    <div class="sub">Artist Intake Form</div>
+    
+    <div class="pay-box">
+        <div class="pay-row">
+            <img src="https://img.icons8.com/color/48/cash-app.png" class="pay-icon">
+            <span>CashApp</span>
+            <b>$Blueliveone</b>
+        </div>
+        <div class="pay-row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Kx791YQc5S2N54zK2mY9_C46mF8Dnd3I_A&s" class="pay-icon">
+            <span>Zelle</span>
+            <b>708-929-8745</b>
+        </div>
+    </div>
+
+    <form id="checkinForm">
+        <label>Stage Name</label>
+        <input type="text" id="artist" placeholder="Enter Name" required>
+        
+        <label>What do you do?</label>
+        <select id="category" required>
+            <option value="">Select Category...</option>
+            <option value="Poet">Poet</option>
+            <option value="Singer">Singer</option>
+            <option value="Musician">Musician</option>
+            <option value="Comedian">Comedian</option>
+            <option value="Guest">Guest / Supporter</option>
+        </select>
+
+        <label>Instagram</label>
+        <input type="text" id="ig" placeholder="@yourhandle">
+
+        <div class="perform-row">
+            <span>Performing Tonight?</span>
+            <input type="checkbox" id="performing">
+        </div>
+
+        <button type="submit" id="submitBtn">Submit & Sign Up</button>
+    </form>
+    <div id="status"></div>
+</div>
+
+<script>
+    // PASTE YOUR NEW GOOGLE WEB APP URL BELOW
+    const SCRIPT_URL = https://script.google.com/macros/s/AKfycbyTK1UQWiMOaefVzl_YGsPtF07DYC_6AwIVtbD9Q5LVFc14qfzpfHmHU-GHvyWicv8FmQ/exec;
+
+    document.getElementById("checkinForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const btn = document.getElementById("submitBtn");
+        const status = document.getElementById("status");
+        
+        btn.disabled = true;
+        btn.innerText = "Processing...";
+
+        const formData = {
+            artist: document.getElementById("artist").value,
+            cat: document.getElementById("category").value,
+            ig: document.getElementById("ig").value,
+            perf: document.getElementById("performing").checked ? "YES" : "NO"
+        };
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify(formData)
+        }).then(() => {
+            status.innerText = "Welcome! You're on the list.";
+            this.reset();
+            btn.disabled = false;
+            btn.innerText = "Submit & Sign Up";
+            setTimeout(() => { status.innerText = ""; }, 6000);
+        }).catch(err => {
+            alert("Connection error. Please try again.");
+            btn.disabled = false;
+        });
+    });
+</script>
+
+</body>
+</html>
